@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #c93f80;
+  --primary-hover: #cd6796;
+  --background: linear-gradient(to bottom, #4b2646, #100425);
+  --foreground: #e9e9e9;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+  }
+} */
+
+.btn-primary {
+  background-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transition: ease-in all .2s;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.stars, .stars:after {
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 448px 1798px #FFF, 1362px 1096px #FFF, 872px 1355px #FFF, 1063px 192px #FFF, 1534px 169px #FFF, 472px 782px #FFF, 1628px 494px #FFF, 1228px 177px #FFF, 459px 99px #FFF, 1066px 1199px #FFF, 1183px 1674px #FFF, 93px 1023px #FFF, 715px 617px #FFF, 1752px 1163px #FFF, 1883px 1313px #FFF, 570px 119px #FFF, 935px 1545px #FFF, 1559px 1427px #FFF, 999px 1223px #FFF, 959px 67px #FFF;
+  animation: animStar 50s linear infinite;
+}
+
+.stars:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+}
+
+.stars2, .stars2:after {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 1783px 1187px #FFF, 813px 106px #FFF, 1369px 633px #FFF, 1709px 88px #FFF, 470px 464px #FFF, 113px 1358px #FFF, 82px 1777px #FFF, 905px 1887px #FFF, 167px 1892px #FFF, 807px 1906px #FFF;
+  animation: animStar 100s linear infinite;
+}
+
+.stars2:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+}
+
+.stars3, .stars3:after {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 823px 1520px #FFF, 1466px 85px #FFF, 843px 1984px #FFF, 1703px 358px #FFF, 117px 897px #FFF;
+  animation: animStar 150s linear infinite;
+}
+
+.stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
