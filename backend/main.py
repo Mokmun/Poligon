@@ -73,7 +73,7 @@ async def clerk_webhook(request: Request):
 # Allow frontend requests from Next.js
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", 'https://dassie-pumped-vertically.ngrok-free.app'],  # Next.js default port, ngrox domain for testing
+    allow_origins=["http://localhost:3000", 'https://dassie-pumped-vertically.ngrok-free.app', 'https://poligon-mokmuns-projects-8adffbad.vercel.app/'],  # Next.js default port, ngrox domain for testing
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

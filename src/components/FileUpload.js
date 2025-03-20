@@ -86,7 +86,7 @@ const FileUpload = ({ setObjPath, setLoading }) => {
                         <option value="sofa">Sofa</option>
                         <option value="table">Table</option>
                         <option value="phone">Phone</option>
-                        <option value="vessel">Bench</option>
+                        <option value="vessel">Vessel</option>
                     </select>
                     <label className="block text-pink-500 text-lg font-bold mb-2" htmlFor="file">
                         Upload File
