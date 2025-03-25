@@ -6,7 +6,7 @@ const FileUpload = ({ setObjPath, setLoading }) => {
     const { userId } = useAuth(); 
     const [file, setFile] = useState(null);
     const [uploadResponse, setUploadResponse] = useState(null);
-
+    
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
     };
@@ -32,7 +32,7 @@ const FileUpload = ({ setObjPath, setLoading }) => {
 
             if (response.status === 200 && response.data.filename) {
                 setUploadResponse(`File uploaded: ${response.data.filename}`);
-                setObjPath(`${response.data.filename}`);
+                setObjPath(`${response.data.obj_url}`);
             } else {
                 setUploadResponse("Upload failed");
             }
@@ -45,10 +45,16 @@ const FileUpload = ({ setObjPath, setLoading }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center mb-12 ">
-            <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg shadow-md border-solid border-gray-600 border">
+        <div className="flex flex-col items-center justify-center w-full mb-8 px-4 sm:px-6 lg:px-8">
+            <form
+                onSubmit={handleSubmit}
+                className="bg-gray-800 p-6 rounded-lg shadow-md border-solid border-gray-600 border w-full max-w-md sm:max-w-lg lg:max-w-xl"
+            >
                 <div className="mb-4">
-                    <label className="block text-pink-500 text-lg font-bold mb-2" htmlFor="filename">
+                    <label
+                        className="block text-pink-500 text-lg font-bold mb-2"
+                        htmlFor="filename"
+                    >
                         Filename
                     </label>
                     <input
@@ -56,8 +62,11 @@ const FileUpload = ({ setObjPath, setLoading }) => {
                         id="filename"
                         className="w-full px-3 py-2 border rounded-lg text-black focus:outline-none focus:border-pink-500 mb-4"
                         required
-                    />    
-                    <label className="block text-pink-500 text-lg font-bold mb-2" htmlFor="category">
+                    />
+                    <label
+                        className="block text-pink-500 text-lg font-bold mb-2"
+                        htmlFor="model"
+                    >
                         Select Model
                     </label>
                     <select
@@ -94,6 +103,7 @@ const FileUpload = ({ setObjPath, setLoading }) => {
                     <input
                         type="file"
                         id="file"
+                        accept="image/*"
                         onChange={handleFileChange}
                         className="w-full px-3 py-2 border rounded-lg text-white focus:outline-none focus:border-pink-500"
                     />

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import axios from "axios";
+import Image from "next/image";
 const Card = ({ userId, imageUrl, fileName, objUrl, onDelete }) => {
     const deleteCollection = async () => {
         try {
@@ -16,22 +17,32 @@ const Card = ({ userId, imageUrl, fileName, objUrl, onDelete }) => {
             <img 
                 src={imageUrl} 
                 alt={fileName} 
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-40 object-contain rounded-md mb-4"
             />
-            <h2 className="text-black text-lg font-semibold mt-2">{fileName}</h2>
-            <div className="flex justify-end items-center w-full gap-4 px-2">
-                <button className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-lg">
+            <h2 className="text-black text-lg font-semibold my-2">{fileName}</h2>
+            <div className="flex justify-end items-end w-full gap-2">
+                <button className="bg-blue-500 hover:bg-blue-700 px-3 py-2 rounded-lg">
                     <a 
                         href={objUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-white hover:underline block"
                     >
-                        Download
+                        <Image
+                            src='/assets/download.svg'
+                            alt='download'
+                            width={24}
+                            height={24}
+                        />
                     </a>
                 </button>
-                <button className="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-lg" onClick={deleteCollection}>
-                    Delete
+                <button className="bg-red-500 hover:bg-red-700 px-3 py-2 rounded-lg" onClick={deleteCollection}>
+                    <Image
+                        src='/assets/trash.svg'
+                        alt='delete'
+                        width={24}
+                        height={24}
+                    />
                 </button>
             </div>
         </div>

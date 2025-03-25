@@ -26,11 +26,13 @@ export default async function RootLayout({ children }) {
   <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
+          className={`${geistSans.variable} ${geistMono.variable} relative antialiased h-full @container mx-auto`}
         >
-          <div className="stars z--10"></div>
-          <div className="stars2 z--10"></div>
-          <div className="stars3 z--10"></div>
+          <div className="absolute z--1 min-h-fit h-full w-full overflow-hidden">
+            <div className="stars"></div>
+            <div className="stars2"></div>
+            <div className="stars3"></div>
+          </div>
           <Navbar />
           {children}
         </body>

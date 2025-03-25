@@ -3,7 +3,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 
 const Viewport = ({ objPath }) => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ const Viewport = ({ objPath }) => {
 
   const Model = () => {
     const obj = useLoader(OBJLoader, objPath);
-    return <primitive object={obj} scale={1} />;
+    return <primitive object={obj} scale={3} />;
   };
   
   const handleDownload = () => {
@@ -26,7 +26,7 @@ const Viewport = ({ objPath }) => {
     document.body.removeChild(link);
   }
   return (
-    <div className="w-3/5 border border-solid border-gray-600 rounded-xl h-4/5 bg-gray-900 flex justify-center items-evenly relative z-10">
+    <div className="w-4/5 lg:w-3/5 border border-solid border-gray-600 rounded-xl h-4/5 bg-gray-900 flex justify-center items-evenly relative">
       {loading && objPath ? 
       <div className="mt-4 flex items-center space-x-2">
           <div className="animate-spin h-6 w-6 border-t-2 border-blue-500 rounded-full"></div>
@@ -40,7 +40,13 @@ const Viewport = ({ objPath }) => {
         </Canvas>
       
       }
-      <button className="absolute bottom-0 right-0 m-4 p-2 bg-violet-500 text-white rounded-md" onClick={handleDownload}>Download</button>
+      <button 
+        className={`absolute bottom-0 right-0 m-4 p-2 bg-violet-500 text-white rounded-xl ${objPath ? "opacity-100" : "opacity-50"}`}
+        onClick={handleDownload} 
+        disabled={!objPath}
+      >
+        <Image src="/assets/download.svg" alt="download" width={24} height={24} />
+      </button>
     </div>
   );
 };
