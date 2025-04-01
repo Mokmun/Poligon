@@ -4,8 +4,7 @@ import FileUpload from "@/components/FileUpload";
 import Viewport from "@/components/Viewport";
 import Loading from "@/components/Loading";
 import { useState } from "react";
-import { useAuth } from "@clerk/nextjs";
-import Link from "next/link";
+
 const Home = () => {
   const [objPath, setObjPath] = useState("");
   const [loading, setLoading] = useState(false);
