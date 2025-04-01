@@ -14,7 +14,7 @@ const page = () => {
       try {
         console.log(userId);
         const response = await axios.get(
-          `https://poligon-mkk.vercel.app/collection/${userId}`
+          `http://localhost:8000/collection/${userId}`
         );
         console.log(response.data);
         setCollections(response.data);

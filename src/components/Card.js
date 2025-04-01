@@ -4,7 +4,7 @@ import Image from "next/image";
 const Card = ({ userId, imageUrl, fileName, objUrl, onDelete }) => {
     const deleteCollection = async () => {
         try {
-            const response = await axios.delete(`https://poligon-mkk.vercel.app/collection/${userId}/${fileName}`)
+            const response = await axios.delete(`http://localhost:8000/collection/${userId}/${fileName}`)
             console.log(response.data)
             onDelete(fileName);
         }
