@@ -24,7 +24,7 @@ const FileUpload = ({ setObjPath, setLoading }) => {
         formData.append("mod3l", document.getElementById("model").value);
         formData.append("category", document.getElementById("category").value);
         try {
-            const response = await axios.post("http://localhost:8000/predict/", formData, {
+            const response = await axios.post("https://poligon-mkk.vercel.app/predict/", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 

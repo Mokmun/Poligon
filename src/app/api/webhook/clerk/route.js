@@ -53,7 +53,7 @@ export async function POST(req) {
   if (evt.type === 'user.created' || evt.type === 'user.updated' || evt.type === 'user.deleted') {
     console.log('User event:', evt.data)
     try {
-      const response = await axios.post('http://localhost:8000/api/webhook/clerk', 
+      const response = await axios.post('https://poligon-mkk.vercel.app/api/webhook/clerk', 
         body, {
           headers: { "Content-Type": "application/json" },
       })
